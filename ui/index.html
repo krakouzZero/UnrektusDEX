@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wojak Finance V2</title>
+    <link rel="stylesheet" href="/ui/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="brand-strip">
+        <div class="floating-brand">
+          <img src="/ui/Wojak_logoTransparent.png" alt="Wojak Finance" class="brand-logo" />
+        </div>
+        <a class="floating-unrektus" href="https://app.unrektus.fi" target="_blank" rel="noopener noreferrer">
+          <img src="/ui/unrektuslogo.svg" alt="Unrektus" class="unrektus-logo" />
+          <span>Use your uREKT now!</span>
+        </a>
+      </div>
+      <img src="/ui/wojak_agent.png" alt="" class="floating-agent" aria-hidden="true" />
+
+      <button id="mobileNavToggle" class="mobile-nav-toggle" type="button">☰</button>
+      <div id="mobileNavMenu" class="mobile-nav-menu">
+        <button class="tab active" data-tab="swap">Swap</button>
+        <button class="tab" data-tab="liquidity">Liquidity</button>
+        <button class="tab" data-tab="claim">Claim</button>
+      </div>
+
+      <aside class="left-nav">
+        <div class="side-menu">
+          <button class="tab active" data-tab="swap">Swap</button>
+          <button class="tab" data-tab="liquidity">Liquidity</button>
+          <button class="tab" data-tab="claim">Claim</button>
+        </div>
+      </aside>
+
+      <aside class="right-panel">
+        <div class="right-controls">
+          <button id="connectBtn" class="btn connect-btn">Connect Wallet</button>
+          <select id="chainSelect"></select>
+        </div>
+        <div class="header-stats">
+          <span id="walletBadge">not connected</span>
+          <span id="chainBadge">-</span>
+          <span id="walletEth">NATIVE: -</span>
+          <span id="walletToken">uREKT: -</span>
+        </div>
+      </aside>
+
+      <div class="content-center">
+      <section class="panel active" data-panel="swap">
+        <article class="card swap-shell">
+          <div class="module-head swap-head">
+            <div class="module-head-right">
+              <label for="slippagePct">Slippage Tolerance</label>
+              <select id="slippagePreset">
+                <option value="0.1">0.1%</option>
+                <option value="0.5" selected>0.5%</option>
+                <option value="1">1%</option>
+                <option value="3">3%</option>
+                <option value="custom">Custom</option>
+              </select>
+              <input id="slippagePct" type="number" step="0.1" min="0.01" value="0.5" />
+            </div>
+          </div>
+          <div class="swap-box">
+            <span class="swap-label">From</span>
+            <div class="swap-meta">
+              <span id="swapFromTokenLabel">-</span>
+              <span id="swapFromBalance" class="balance-click">Balance: 0</span>
+            </div>
+            <div class="swap-row two-col">
+              <input id="swapAmount" type="number" step="any" value="1" />
+              <div class="swap-token-select">
+                <select id="swapFromToken"></select>
+                <button id="swapMaxBtn" class="mini-btn" type="button">Max</button>
+              </div>
+            </div>
+          </div>
+          <div class="swap-divider-wrap">
+            <button id="swapSwitchBtn" class="switch-btn" type="button">⇅</button>
+          </div>
+          <div class="swap-box">
+            <span class="swap-label">To (estimated)</span>
+            <div class="swap-meta">
+              <span id="swapToTokenLabel">-</span>
+              <span id="swapToBalance" class="balance-click">Balance: 0</span>
+            </div>
+            <div class="swap-row two-col">
+              <input id="quoteAmountOut" type="text" value="-" readonly />
+              <select id="swapToToken"></select>
+            </div>
+          </div>
+          <div class="pro-panel receive-panel">
+            <div class="pro-head">You Receive</div>
+            <div class="receive-amount"><strong id="receiveAmount">-</strong> <span id="receiveSymbol">-</span></div>
+            <div class="receive-note" id="receiveNote">Enter an amount</div>
+          </div>
+          <button id="swapBtn" class="btn">Execute Swap</button>
+          <p id="quoteResult" class="result">-</p>
+        </article>
+      </section>
+
+      <section class="panel" data-panel="liquidity">
+        <article class="card">
+          <div class="module-head">
+            <h2>Liquidity</h2>
+            <div class="module-head-right">
+              <label for="removePercent">Remove (%)</label>
+              <input id="removePercent" type="number" min="1" max="100" step="1" value="25" />
+            </div>
+          </div>
+          <div class="pro-panel liq-pro">
+            <div class="pro-head">Pair Monitor</div>
+            <div class="pro-grid">
+              <div><span>Selected Pair</span><strong id="liqPairLabel">-</strong></div>
+              <div><span>Pair Address</span><strong id="liqPairAddress">-</strong></div>
+              <div><span>Reserves</span><strong id="liqReserves">-</strong></div>
+              <div><span>Your LP</span><strong id="liqMyLp">-</strong></div>
+            </div>
+          </div>
+          <div class="grid two">
+            <div class="field">
+              <label for="liqTokenA">Token A</label>
+              <select id="liqTokenA"></select>
+            </div>
+            <div class="field">
+              <label for="liqTokenB">Token B</label>
+              <select id="liqTokenB"></select>
+            </div>
+          </div>
+          <div class="grid two">
+            <div class="field">
+              <label for="liqAmountA">Amount A</label>
+              <input id="liqAmountA" type="number" step="any" value="1000" />
+            </div>
+            <div class="field">
+              <label for="liqAmountB">Amount B</label>
+              <input id="liqAmountB" type="number" step="any" value="1" />
+            </div>
+          </div>
+          <div class="grid two">
+            <button id="seedBtn" class="btn">Add Liquidity</button>
+            <button id="removeBtn" class="btn danger">Remove Liquidity</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Existing Pools</h2>
+          <div class="table-wrap">
+            <table class="pool-table">
+              <thead>
+                <tr>
+                  <th>Pair</th>
+                  <th>Reserve 0</th>
+                  <th>Reserve 1</th>
+                  <th>LP Supply</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody id="poolsBody">
+                <tr><td colspan="5">Loading pools...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" data-panel="claim">
+        <article class="card claim-highlight">
+          <h2>Claim New uREKT (1:1)</h2>
+          <p id="claimStatus" class="claim-status">Connect wallet to load claim eligibility.</p>
+          <div class="grid two">
+            <div class="field">
+              <label for="claimAmount">Claim Amount</label>
+              <input id="claimAmount" type="number" step="any" placeholder="Amount" />
+            </div>
+            <div class="field">
+              <label for="claimProof">Merkle Proof (JSON array)</label>
+              <input id="claimProof" type="text" placeholder='["0x..."]' />
+            </div>
+          </div>
+          <button id="claimBtn" class="btn">Claim</button>
+        </article>
+      </section>
+
+      <div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="/ui/app.js"></script>
+  </body>
+</html>

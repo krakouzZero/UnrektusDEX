@@ -1,0 +1,21 @@
+.text-row{
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 350px;
+  text-align: center;
+  
+  h2{
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  p{
+    font-size: toRem(18);
+    color: $white;
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    @include media-breakpoint-up(lg){
+      font-size: toRem(28.8);
+    }
+  }
+}

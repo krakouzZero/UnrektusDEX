@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Unrektus</title>
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/styles.min.css" />
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { packages: ['sankey'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'From');
+      data.addColumn('string', 'To');
+      data.addColumn('number', 'Amount');
+      data.addRows([
+        ['Submissions', 'Prize Pool', 33],
+        ['Boosts', 'Prize Pool', 33],
+        ['uREKT Trades', 'Prize Pool', 34],
+        ['uREKT Trades', 'Treasury Wallet', 25],
+        ['Bribes', 'Voters', 60],
+        ['Prize Pool', 'Winners', 100],
+      ]);
+      var options = {
+        width: '100%',
+        height: 400,
+        sankey: { node: { label: { fontSize: 14 } } }
+      };
+      var chart = new google.visualization.Sankey(document.getElementById('sankey_chart'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body class="with-background">
+  <div class="noiseBG"></div>
+  <div class="content" role="main">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="top-banner">
+        <img class="logo slideInUp" src="img/unrektus-logo.png" alt="Unrektus Logo">
+        <h1 class="slideInUp">
+          Turn Your Losses into Gains: The Platform that Rewards Your Worst Trades!
+        </h1>
+        <p class="sub-heading slideInUp">
+          Unrektus is the first platform where you can earn in two ways: by submitting your losing trades or by voting for others. Two types of players, two prize pools, one mission: ‘Unrekt’ your trading history!
+        </p>
+        <div class="cta-box slideInUp">
+          <a href="https://app.unrektus.fi" class="btn btn-gradient">Join Now</a>
+        </div>
+      </section>
+            <!-- Section 2: Quick Concept Overview -->
+            <section class="concept-overview">
+              <h2 class="slideInUp">Two Types of Participants, Two Ways to Earn</h2>
+              <div class="popbox purple slideInUp">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>1. Traders (REKT)</h3>
+                    <p>These are users who actually lost money on trades. Submit your losing trades and compete for the Prize Pool Traders.</p>
+                    <ul>
+                      <li>The Traders’ prize pool is distributed among the top-ranked submissions at the end of each session.</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h3>2. Voters (VOTERS)</h3>
+                    <p>These are users who hold the $uREKT token and vote for their favorite submissions.</p>
+                    <ul>
+                      <li>Earn your share of the Prize Pool Voters, which comes from the “bribes” placed by Traders.</li>
+                      <li>Receive a portion of these bribes in proportion to the votes you cast.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+      <!-- Section 3: How It Works -->
+      <section class="how-it-works">
+        <h2 class="slideInUp">How It Works – In Detail</h2>
+        <div class="popbox purple slideInUp">
+          <ol>
+            <li><b>Step 1: Join the Ongoing Session</b><br>Each session lasts 3 days (except the first one, which may be longer).</li>
+            <li>
+              <b>Step 2: Choose Your Strategy</b>
+              <ul>
+                <li><b>Trader (REKT):</b> Submit losing trades, pay submission fees, and compete for votes.</li>
+                <li><b>Voter:</b> Stake your $uREKT, cast votes, and earn bribe rewards.</li>
+              </ul>
+            </li>
+            <li><b>Step 3: Boosts & Strategy</b><br>Boost your submission ranking or optimize votes to maximize rewards.</li>
+            <li><b>Step 4: Reward Distribution</b><br>Prize pools are allocated, and tokens are reclaimed at the session’s end.</li>
+          </ol>
+        </div>
+      </section>
+      <!-- Section 4: Partners & Airdrop -->
+      <section class="partners-airdrop">
+        <h2 class="slideInUp">A Major Airdrop for Our Partners!</h2>
+        <p class="sub-heading slideInUp">
+          Celebrate Unrektus’s launch with a $uREKT airdrop for holders of partner tokens.
+        </p>
+        <ul>
+          <li><b>Who Qualifies?</b> Holders of partner tokens (e.g., X, Y, Z).</li>
+          <li><b>How to Claim:</b> Connect your wallet, and claim based on your token holdings.</li>
+        </ul>
+        <a class="btn btn-gradient" href="#">Check Airdrop Eligibility</a>
+      </section>
+      </div>
+      </div>
+      </body>

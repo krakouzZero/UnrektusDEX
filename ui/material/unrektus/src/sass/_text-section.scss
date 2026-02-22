@@ -1,0 +1,44 @@
+.text-section{
+  position: relative;
+  margin-bottom: 120px;
+
+  h2{
+    margin-bottom: 40px;
+
+    @include media-breakpoint-up(lg){
+      margin-bottom: 80px;
+    }
+  }
+
+  .row{
+    row-gap: 25px;
+    margin-bottom: 86px;
+  }
+
+  .gradient-spans{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 50px;
+    justify-content: center;
+
+    span{
+
+      font-size: toRem(28.8);
+      background: linear-gradient(90deg, #F58E27 0%, #D73BA6 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.3s ease;
+
+      &:hover, &:focus{
+        background: linear-gradient(90deg, #D73BA6 0%, #F58E27 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+    }
+  }
+}
+  

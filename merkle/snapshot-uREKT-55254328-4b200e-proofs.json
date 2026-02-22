@@ -1,0 +1,15 @@
+{
+  "token": "0x47022108d3Cd791D0492e05575B150Ae738b8215",
+  "symbol": "uREKT",
+  "decimals": 18,
+  "snapshotBlock": 55254328,
+  "merkleRoot": "0xfb55de30fefa59d3e885793dee9ae40f40e0a780a5782756ba4a2ff085629614",
+  "totalAmount": "801684397891399837923",
+  "totalClaims": 1,
+  "proofsByAddress": {
+    "0x4b200e8e6340e17ea4bfd8650f19410bbbdf709e": {
+      "amount": "801684397891399837923",
+      "proof": []
+    }
+  }
+}

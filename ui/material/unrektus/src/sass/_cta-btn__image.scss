@@ -1,0 +1,80 @@
+.cta-btn__image{
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  padding-bottom: 150px;
+
+  @media screen and (min-width:450px){
+    padding-bottom: 200px;
+  }
+  @include media-breakpoint-up(sm){
+    padding-bottom: 250px;
+  }
+  @include media-breakpoint-up(lg){
+    padding-bottom: 200px;
+  }
+
+  img{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    height: 100px;
+
+    @media screen and (min-width:450px){
+      height: 150px;
+    }
+
+    @include media-breakpoint-up(sm){
+      height: 200px  
+    }
+
+    @include media-breakpoint-up(lg){
+      height: 300px;
+    }
+
+    @media screen and (min-width:1600px) {
+      height: 350px;
+    }
+ 
+    &:first-of-type{
+      left: 0;
+    }
+
+    &:last-of-type{
+      right: 0;
+    }
+  }
+
+  .popbox{
+    position: relative;
+    text-align: center;
+
+    p{
+      max-width: 900px;
+      margin-bottom: 45px;
+    }
+
+    .button-group{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 25px;
+      z-index: 10;
+      @include media-breakpoint-up(md){
+        flex-direction: row;
+      }
+
+      a{
+        display: flex;
+        justify-content: center;
+
+        @include media-breakpoint-up(md){
+          width: 270px;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title> Unrektus </title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.min.css" />
+    <title>Unrektus Cash Flow</title>
+    <!-- Include Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Load the Google Charts package
+        google.charts.load('current', {packages: ['sankey']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'From');
+            data.addColumn('string', 'To');
+            data.addColumn('number', 'Amount');
+            data.addRows([
+                ['Submissions', 'Prize Pool', 33],
+                ['Boosts', 'Prize Pool', 33],
+                ['uREKT Trades', 'Prize Pool', 34], // 50% to Prize Pool
+                ['uREKT Trades', 'Treasury Wallet', 25], // 50% to Treasury Wallet
+                ['Bribes', 'Voters', 60],
+                ['Prize Pool', 'Winners', 100],
+            ]);
+
+            var options = {
+                width: '100%',
+                height: 400,
+                sankey: {
+                    node: {
+                        label: { fontSize: 14 },
+                    },
+                    link: {
+                        color: {
+                            fill: '#735cdd'
+                        }
+                    }
+                }
+            };
+
+            var chart = new google.visualization.Sankey(document.getElementById('sankey_chart'));
+            chart.draw(data, options);
+        }
+    </script>
+  </head>
+  <body class="with-background">
+      <div class="content" role="main">
+        <div class="noiseBG"></div>
+        <div class="container">
+
+          <div class="background-section">
+            <div class="container">
+
+              <section class="top-banner ">
+                <img class="logo slideInUp" src="img/unrektus-logo.png" alt="Unrektus Logo">
+                <h1 class="slideInUp">
+                  <!-- Turn your losses into opportunities -->
+                  Turn Your Losses into Gains: The Platform that Rewards Your Worst Trades!
+                </h1>
+                <p class="sub-heading slideInUp">
+                  An innovative crypto experience built for the community, by the community. Rewarding losing trades, encouraging governance through voting and bribes, and gamifying the Web3 landscape for an engaging and fun journey.
+                  <!-- A new crypto experience designed by degens, for degens. 
+                  Actually rewarding losing trades, voting and bribes, and gamifying the world of Web3 shitcoining. -->
+                </p>
+
+                <div class="cta-box slideInUp">
+                  <img src="img/rektus-cta-left-image.png">
+                  <div class="popbox purple ">
+                    <!-- <h3>Join the Game Now</h3>
+                    <a href="https://app.unrektus.fi" class="btn btn-gradient" > Start Earning with Unrektus</a> -->
+                  
+                    <h3>Join the Revolution</h3>
+                    <a href="https://app.unrektus.fi" class="btn btn-gradient" > Start Winning with Unrektus Today!</a>
+                  
+                  </div>
+                  <img  src="img/rektus-cta-right-image.png">
+                </div>
+
+                <div class="popbox purple slideInUp">
+                  <div class="row content-list">
+                    <div class="col-md-6 col-xl-3 content-items text-center">
+        
+                      <h3>80+</h3>
+                      <p>
+                        <!-- sessions already hosted -->
+                         sessions hosted so far
+                      </p>
+                    </div>
+
+                    <div class="col-md-6 col-xl-3 content-items text-center">
+                      <h3>$1,400</h3>
+                      <p>
+                        <!-- worth of rewards and counting -->
+                        in rewards distributed and growing
+                      </p>
+                    </div>
+                    <div class="col-md-6 col-xl-3 content-items text-center">
+           
+                      <h3>$3,000</h3>
+                      <p>
+                        <!-- in player rewards distributed -->
+                        in total player earnings
+                      </p>
+                    </div>
+
+                    <div class="col-md-6 col-xl-3 content-items text-center">
+                      <h3>20m+</h3>
+                      <p>
+                        <!-- votes to date -->
+                        votes cast to date
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <section class="unrektus-works">
+                <h2 class="slideInUp">
+                  How Unrektus Works
+                </h2>
+
+                <div class="popbox unrektus-works__contents slideInUp">
+                  <div class="row content-list">
+
+                    <div class="col-12 col-md-6 col-lg-4 content-items text-center">
+                      <img src="img/Vote.png" height="60" alt="vote">
+                      <!-- <h3>Vote</h3> -->
+                      <h3>Cast Your Vote</h3>
+                      <p>
+                        <!-- Players vote with their tokens to shape outcomes in real time. -->
+                        Use your tokens to influence outcomes and shape decisions in real-time.
+                      </p>
+                    </div>
+
+                    <div class="col-12 col-md-6  col-lg-4 content-items text-center">
+                      <img src="img/Earn-bribes.png" height="60" alt="vote">
+                      <!-- <h3>Earn Bribes</h3> -->
+                      <h3>Earn Strategic Bribes</h3>
+                      <p>
+                        <!-- Earn by participating in strategic votes. -->
+                        Participate in votes and earn rewards through strategic decision-making.
+                      </p>
+                    </div>
+
+                    <div class="col-12 col-md-6  col-lg-4 content-items text-center">
+                      <img src="img/win-rewards.png" height="60" alt="vote">
+                      <!-- <h3>Win Rewards</h3> -->
+                      <h3>Win Big Rewards</h3>
+                      <p>
+                        <!-- Compete for prizes in every session. -->
+                        Compete for exclusive prizes during every session and maximize your earnings.
+                      </p>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 content-items text-center">
+                      <img src="img/svg/repeat-level-up.svg" height="70" alt="vote">
+                      <h3>Repeat & Level Up</h3>
+                      <p>
+                        <!-- Play smarter and maximize your earnings.<br> -->
+                        Play smarter, refine your strategies, and maximize your earnings with every session.<br><br>
+                        
+                      </p>
+                        <div class="container">                
+                          <h3>Step 1: Join a Session</h3>
+                          <p>Start by heading to app.unrektus.fi. Make sure your wallet is connected to the platform and submit one of your bad trades to participate.<br><br></p>
+                  
+                          <h3>Step 2: Cast Your Votes</h3>
+                          <p>Use your Unrektus tokens (uREKT) to vote on submissions on the Vote page. Your participation shapes the outcomes in real-time.<br><br></p>
+                  
+                          <h3>Step 3: Earn Bribes</h3>
+                          <p>Strategically engage in voting to earn bribes as additional rewards. The more you participate, the more you earn.<br><br></p>
+                  
+                          <h3>Step 4: Compete for Rewards</h3>
+                          <p>Each session offers exciting prizes. Play smart, optimize your strategies, and maximize your earnings.<br><br></p>
+                  
+                          <!-- <a href="https://docs.unrektus.fi" class="button">View Full Documentation</a> -->
+
+                      </div>
+                    </section>
+                    <!-- Section 2: Quick Concept Overview -->
+                    <!-- <section class="concept-overview">
+                      <h2 class="slideInUp">Two Types of Participants, Two Ways to Earn</h2>
+                      <div class="popbox purple slideInUp">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h3>1. Traders (REKT)</h3>
+                            <p>These are users who actually lost money on trades. Submit your losing trades and compete for the Prize Pool Traders.</p>
+                            <ul>
+                              <li>The Traders’ prize pool is distributed among the top-ranked submissions at the end of each session.</li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <h3>2. Voters (VOTERS)</h3>
+                            <p>These are users who hold the $uREKT token and vote for their favorite submissions.</p>
+                            <ul>
+                              <li>Earn your share of the Prize Pool Voters, which comes from the “bribes” placed by Traders.</li>
+                              <li>Receive a portion of these bribes in proportion to the votes you cast.</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </section> -->
+              <!-- Section 3: How It Works
+              <section class="how-it-works">
+                <h2 class="slideInUp">How It Works – In Detail</h2>
+                <div class="popbox purple slideInUp">
+                  <ol>
+                    <li><b>Step 1: Join the Ongoing Session</b><br>Each session lasts 3 days (except the first one, which may be longer).</li>
+                    <li>
+                      <b>Step 2: Choose Your Strategy</b>
+                      <ul>
+                        <li><b>Trader (REKT):</b> Submit losing trades, pay submission fees, and compete for votes.</li>
+                        <li><b>Voter:</b> Stake your $uREKT, cast votes, and earn bribe rewards.</li>
+                      </ul>
+                    </li>
+                    <li><b>Step 3: Boosts & Strategy</b><br>Boost your submission ranking or optimize votes to maximize rewards.</li>
+                    <li><b>Step 4: Reward Distribution</b><br>Prize pools are allocated, and tokens are reclaimed at the session’s end.</li>
+                  </ol>
+                </div>
+              </section> -->
+              <!-- Section 4: Partners & Airdrop
+              <section class="partners-airdrop">
+                <h2 class="slideInUp">A Major Airdrop for Our Partners!</h2>
+                <p class="sub-heading slideInUp">
+                  Celebrate Unrektus’s launch with a $uREKT airdrop for holders of partner tokens.
+                </p>
+                <ul>
+                  <li><b>Who Qualifies?</b> Holders of partner tokens (e.g., X, Y, Z).</li>
+                  <li><b>How to Claim:</b> Connect your wallet, and claim based on your token holdings.</li>
+                </ul>
+                <a class="btn btn-gradient" href="#">Check Airdrop Eligibility</a>
+              </section>
+                      <a href="https://docs.unrektus.fi" class="btn btn-gradient" > View Full Documentation</a> -->
+
+                    <!-- </div>
+                  </div> -->
+                <!-- </div> -->
+              <!-- </section> -->
+
+              <section class="text-row">
+                <h2 class="slideInUp">
+                  Unrektus was born from the chaos of crypto
+                </h2>
+                <p class="slideInUp">
+                  A dApp built by degens, for degens. Over 2 years in the making, it combines fun, strategy, and Web3 innovation.
+                   Our semi-doxxed team of passionate creators is here to empower the crypto community. Unrektus is more than a game; it’s a revolution for the plebs.
+                </p>
+              </section>
+
+            </div>
+          </div>
+
+          <section class="popbox-image slideInUp">
+            <img class="top-image " src="img/popbox-image.png">
+            <div class="popbox" >
+              <div class="row">
+
+                <div class="col-lg-4 text-center">
+
+                  <img src="img/krakouz.webp" alt="Krakouz">
+                  <h3>Krakouz</h3>
+                  <span>Founder/Lead Strategist</span>
+                  <p>Unrektus visionary & the voice of Unrektus in the degen universe.</p>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                  <img src="img/kingwojak.webp" alt="King Wojak">
+                  <h3>King Wojak</h3>
+                  <span>Consulting expert</span>
+                  <p>Crypto OG guiding the team strategically. Financier.</p>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                  <img src="img/rabtai.webp" alt="rabtai">
+                  <h3>RabTAI</h3>
+                  <span>Dev Wizard</span>
+                  <p>Smart contract specialist with a focus on user security.</p>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                  <img src="img/roshu.webp" alt="roshu">
+                  <h3>Roshu</h3>
+                  <span>Front-End Witch</span>
+                  <p>Front-end pro. React TS/JS.</p>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                  <img src="img/autre.webp" alt="awesome wells">
+                  <h3>Awesome Welles</h3>
+                  <span>Marketing/Community Manager</span>
+                  <p>Crowd manipulation guru.</p>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                  <img src="img/panchain.webp" alt="panchain">
+                  <h3>Panchain</h3>
+                  <span>Graphic Designer</span>
+                  <p>Some say he is Banksy.</p>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <div class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"Unrektus is a blast! Made a bad trade while drunk or just got rekt? Don’t worry—Unrektus is here to save the day 💪. Submit your trade, set a bribe, and get the community to vote for you 😍. Keep submitting that same trade until you’re fully unrekt 💥. The battles and competition make it so much fun for everyone!"</p>
+                    <footer>- Koen, from The Defi Addicts</footer>
+                </div>
+                <div class="testimonial">
+                    <p>"Corrections happen, but it still hurts sometimes 😔 
+                      Unrektus is the #dapp 
+                      get back some native tokens!
+                      Hold $uREKT, vote and get those tokens back it is that simple 🆒
+                      Wipe away dem tears 😢 "</p>
+                    <footer>- TheCryptoCanuck</footer>
+                </div>
+                <div class="testimonial">
+                    <p>"I’ve earned real rewards while having fun. Unrektus is a game-changer!"</p>
+                    <footer>- TokenPlayer</footer>
+                </div>
+            </div>
+        </div>
+
+        
+
+          <section class="text-section text-center">
+            <!-- <h2 class="slideInUp"> Where the Money Goes </h2> -->
+            <h2 class="slideInUp"> Innovative cash flow</h2>
+            <div class="row slideInUp">
+              <div class="col-lg-6">
+                <!-- <p>“10% of all transactions fuel bribes, rewards, and development.”</p> -->
+                <p><b>Small fees, big rewards:</b><br> Minor fees for submissions and boosts directly fuel the prize pool, letting you earn more.</p>
+              </div>
+              <div class="col-lg-6">
+                <p><b>Grow the pot together:</b><br> Every submission, boost, and uREKT trade increases the prize money, ensuring a dynamic and rewarding experience for all participants.</p>
+              </div>
+            </div>
+            <p>Minor fees and trades contribute to increasing the prize pool for a dynamic and rewarding experience.</p>
+            <!-- Insert Sankey Diagram here -->
+            <div id="sankey_chart"></div>
+            <br> <br> 
+            <div class="gradient-spans slideInUp">
+               <span> Player Votes</span>
+               <span> Prize Pool</span>
+               <span> Rewards Distribution </span>
+               <span> Community Growth </span>
+            </div>
+          </section>
+
+
+          <section class="cta-btn__image">
+
+            <img class="slideInLeft" src="img/cta-image-left.png">
+
+            <div class="container">
+              <div class="popbox purple slideInUp">
+                <p>Ready to Join the Revolution? Start Voting, Earning, and Winning with Unrektus Today!</p>
+                <div class="button-group">
+                  <a class="btn btn-gradient" href="https://app.unrektus.fi"> Play Now!</a>
+                  <a class="btn btn-primary" href="https://docs.unrektus.fi"> Read Our Documentation</a>
+                </div>
+              </div>
+            </div>
+
+            <img class="slideInRight" src="img/cta-image-right.png">
+          </section>
+        </div>
+      </div>
+
+    </div>
+    <!-- content-wrapper -->
+     
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="js/vendor/jquery-3.3.1.min.js"><\/script>'
+        );
+    </script>
+    <script src="js/footer-scripts.min.js"></script>
+
+  </body>
+</html>

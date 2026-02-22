@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+pragma solidity =0.5.16;
+
+import "@uniswap/v2-core/contracts/UniswapV2Factory.sol";
+
+contract WojakFactory is UniswapV2Factory {
+    constructor(address feeToSetter) public UniswapV2Factory(feeToSetter) {}
+}

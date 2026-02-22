@@ -1,0 +1,19 @@
+{
+  "name": "EchBase-WP",
+  "version": "1.1.0",
+  "description": "A starting point WordPress template with SASS Bootstrap set up, Grunt modules and a standard filepath.",
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^8.6.5",
+    "grunt": "^1.6.1",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-postcss": "^0.9.0",
+    "sass": "latest"
+  }
+}

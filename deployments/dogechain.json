@@ -1,0 +1,19 @@
+{
+  "network": "dogechain",
+  "deployer": "0x4b200e8E6340E17Ea4Bfd8650f19410bBBDF709e",
+  "feeToSetter": "0x4b200e8E6340E17Ea4Bfd8650f19410bBBDF709e",
+  "weth": "0xC2D63c0Ad782b2F561E78b8b944a4cE44D203217",
+  "factory": "0x9BF216cf124db6B372Cc3d56a835B52b9a258A43",
+  "router": "0xfb915E1EdC0283fD821E66303C9F163eD2D0B001",
+  "tokenA": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
+  "pair": "0xF3cdE331CfBe27f6520Dd82c02d15176d4AA5035",
+  "tokenASymbol": "uREKT",
+  "tokenAName": "Unrektus",
+  "claim": "0xCfED1D88c51E87c9E44A2b2CF32A52CC981cB783",
+  "claimRoot": "0x49fab59fa58f2e1ba3e3dbc9be49b9b6c6549782ed715ade18b750db5644295a",
+  "claimToken": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
+  "claimTotalAmount": "513000000000000000000",
+  "claimDeadline": 1776807690,
+  "claimMerkleFile": "merkle/snapshot-uREKT-55296951-merkle.json",
+  "claimProofsFile": "merkle/snapshot-uREKT-55296951-proofs.json"
+}

@@ -1,0 +1,32 @@
+{
+  "token": "0x36B50005e4f7640Ed61d0F169a0E71CF210f2836",
+  "symbol": "uREKT",
+  "decimals": 18,
+  "snapshotBlock": 55296154,
+  "startBlock": 55253232,
+  "totalHolders": 4,
+  "totalAmount": "4000000000000000000000000",
+  "totalAmountFormatted": "4000000.0",
+  "claims": [
+    {
+      "address": "0x1D6258CC70342c4E712F40e82ebc314eE47428bD",
+      "amount": "1000000000000000000000",
+      "amountFormatted": "1000.0"
+    },
+    {
+      "address": "0x308f1b048Aa97C5119618Cf495DC0884FA642D5a",
+      "amount": "1010",
+      "amountFormatted": "0.00000000000000101"
+    },
+    {
+      "address": "0x36B50005e4f7640Ed61d0F169a0E71CF210f2836",
+      "amount": "20198625819177589",
+      "amountFormatted": "0.020198625819177589"
+    },
+    {
+      "address": "0x4b200e8E6340E17Ea4Bfd8650f19410bBBDF709e",
+      "amount": "3998999979801374180821401",
+      "amountFormatted": "3998999.979801374180821401"
+    }
+  ]
+}

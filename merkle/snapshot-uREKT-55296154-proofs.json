@@ -1,0 +1,39 @@
+{
+  "token": "0x36B50005e4f7640Ed61d0F169a0E71CF210f2836",
+  "symbol": "uREKT",
+  "decimals": 18,
+  "snapshotBlock": 55296154,
+  "merkleRoot": "0xca08804581ccdcb4d9c56bb3dc476204359432c0738d3a50961eb02d0fc7345b",
+  "totalAmount": "4000000000000000000000000",
+  "totalClaims": 4,
+  "proofsByAddress": {
+    "0x1d6258cc70342c4e712f40e82ebc314ee47428bd": {
+      "amount": "1000000000000000000000",
+      "proof": [
+        "0xeb8978d2c147250b887e65d640f662d70d83b447a3252da31cf6b00244aac10f",
+        "0x84fe45f3e040777cb457d1fbb93e2d7ed217f3d3bed73be611c88093e339d8c0"
+      ]
+    },
+    "0x308f1b048aa97c5119618cf495dc0884fa642d5a": {
+      "amount": "1010",
+      "proof": [
+        "0x9d6db216a7b9fb8f29362e96a7442b83b7a59a41b23afc16516266f526d0bf30",
+        "0x84fe45f3e040777cb457d1fbb93e2d7ed217f3d3bed73be611c88093e339d8c0"
+      ]
+    },
+    "0x36b50005e4f7640ed61d0f169a0e71cf210f2836": {
+      "amount": "20198625819177589",
+      "proof": [
+        "0x93decd80f9abbb8757733005b5595f078133f13e76c700d3d1aad2ee96e96262",
+        "0x4753729b57c264a26c1dd56b35192a46ce3996fc7832ee5cc1ef9166ae750991"
+      ]
+    },
+    "0x4b200e8e6340e17ea4bfd8650f19410bbbdf709e": {
+      "amount": "3998999979801374180821401",
+      "proof": [
+        "0xca71fb318854643a50456b6a628e35b4f9a5a9ca2a93d8432f0207f565678b5d",
+        "0x4753729b57c264a26c1dd56b35192a46ce3996fc7832ee5cc1ef9166ae750991"
+      ]
+    }
+  }
+}

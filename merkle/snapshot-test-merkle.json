@@ -1,0 +1,16 @@
+{
+  "token": "0x47022108d3Cd791D0492e05575B150Ae738b8215",
+  "symbol": "uREKT",
+  "decimals": 18,
+  "snapshotBlock": 0,
+  "merkleRoot": "0x05d9803f2e82e14524549ce71cc4c12e016807e56828b7bccea970575e6c5771",
+  "totalAmount": "1000000000000000000000",
+  "totalClaims": 1,
+  "claims": [
+    {
+      "address": "0x4b200e8E6340E17Ea4Bfd8650f19410bBBDF709e",
+      "amount": "1000000000000000000000",
+      "proof": []
+    }
+  ]
+}

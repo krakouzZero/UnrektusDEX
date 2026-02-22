@@ -1,0 +1,44 @@
+.unrektus-works{
+  position: relative;
+  margin-bottom: 60px;
+
+  @include media-breakpoint-up(lg){
+    margin-bottom: 130px;
+  }
+  h2{
+    margin-bottom: 64px;
+    text-align: center;
+  }
+
+  .content-list{
+    row-gap: 30px;
+  }
+
+  .content-items{
+
+    img{
+      max-width: 100%;
+      min-height: 60px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    h3{
+      color: $text;
+      margin-bottom: 8px;
+    }
+
+    p{
+      margin: 0;
+    }
+
+    &:not(.col-12){
+
+      p{
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+    }
+  }
+}

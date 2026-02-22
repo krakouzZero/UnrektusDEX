@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+html,
+body {
+  color: $text;
+  font-family: $standardFont;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $standardFont;
+  color: $white;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $white;
+}
+
+h1 {
+  font-size: toRem(38);
+  letter-spacing: -2.56px;
+
+  @include media-breakpoint-up(md) {
+    font-size: toRem(50);
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: toRem(64);
+  }
+}
+
+h2 {
+  font-size: toRem(38);
+  letter-spacing: -2.56px;
+  @include media-breakpoint-up(md) {
+    font-size: toRem(50);
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: toRem(64);
+  }
+}
+
+h3 {
+  font-size: toRem(24);
+  letter-spacing: -0.84px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: toRem(38.4);
+  }
+}
+
+p{
+  font-size: toRem(18);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: -0.528px;
+  @include media-breakpoint-up(lg){
+    font-size: toRem(24);
+  }
+}
+
+a {
+  color: $white;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $yellow;
+  }
+}

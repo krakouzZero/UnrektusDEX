@@ -1,0 +1,60 @@
+{
+  "defaultChainKey": "hardhat",
+  "chains": {
+    "hardhat": {
+      "key": "hardhat",
+      "name": "Hardhat Local",
+      "chainId": 31337,
+      "chainIdHex": "0x7a69",
+      "nativeCurrency": {
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "rpcUrls": [
+        "http://127.0.0.1:8545"
+      ],
+      "blockExplorerUrls": [],
+      "contractsFromDeploymentFile": true,
+      "deploymentFile": "/deployments/localhost.json"
+    },
+    "dogechain": {
+      "key": "dogechain",
+      "name": "Dogechain Mainnet",
+      "chainId": 2000,
+      "chainIdHex": "0x7d0",
+      "wrappedNativeSymbol": "wDOGE",
+      "nativeCurrency": {
+        "name": "Dogecoin",
+        "symbol": "DOGE",
+        "decimals": 18
+      },
+      "rpcUrls": [
+        "https://rpc.dogechain.dog"
+      ],
+      "blockExplorerUrls": [
+        "https://explorer.dogechain.dog"
+      ],
+      "claimMerkleFile": "merkle/snapshot-uREKT-55296951-merkle.json",
+      "claimProofsFile": "merkle/snapshot-uREKT-55296951-proofs.json",
+      "tokenLogos": {
+        "native": "/ui/wdoge.png",
+        "urekt": "/ui/urekt.png",
+        "0xf148221c1218a6ce76aecb889eafae71c0d00a6f": "/ui/urekt.png"
+      },
+      "tokens": [
+        {
+          "address": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
+          "logoURI": "/ui/urekt.png"
+        }
+      ],
+      "contracts": {
+        "router": "0xfb915E1EdC0283fD821E66303C9F163eD2D0B001",
+        "factory": "0x9BF216cf124db6B372Cc3d56a835B52b9a258A43",
+        "weth": "0xC2D63c0Ad782b2F561E78b8b944a4cE44D203217",
+        "tokenA": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
+        "claim": "0xCfED1D88c51E87c9E44A2b2CF32A52CC981cB783"
+      }
+    }
+  }
+}

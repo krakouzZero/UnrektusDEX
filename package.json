@@ -1,0 +1,44 @@
+{
+  "name": "wojak-finance-v2-dex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wojak Finance DEX fork based on Uniswap V2",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:dogechain": "hardhat run scripts/deploy.js --network dogechain",
+    "deploy:urekt:local": "hardhat run scripts/deployUrektV2.js --network localhost",
+    "deploy:urekt:dogechain": "hardhat run scripts/deployUrektV2.js --network dogechain",
+    "pair:local": "hardhat run scripts/createPair.js --network localhost",
+    "pair:dogechain": "hardhat run scripts/createPair.js --network dogechain",
+    "pair:live:dogechain": "hardhat run scripts/createLivePair.js --network dogechain",
+    "snapshot:token": "node scripts/snapshotOldToken.js",
+    "snapshot:wallet": "node scripts/snapshotWalletAtBlock.js",
+    "merkle:build": "node scripts/buildMerkleClaims.js",
+    "claim:deploy:dogechain": "hardhat run scripts/deployClaim.js --network dogechain",
+    "claim:fund:dogechain": "hardhat run scripts/fundClaim.js --network dogechain",
+    "fee:set:local": "hardhat run scripts/setFeeTo.js --network localhost",
+    "fee:set:dogechain": "hardhat run scripts/setFeeTo.js --network dogechain",
+    "fee:calc": "node scripts/feeCalculator.js",
+    "verify:urekt:dogechain": "hardhat run scripts/verifyUrekt.js --network dogechain",
+    "seed:local": "hardhat run scripts/seedLiquidity.js --network localhost",
+    "swap:test:local": "hardhat run scripts/swapTest.js --network localhost",
+    "ui:serve": "node scripts/uiServer.js",
+    "ui:sync:dogechain": "node scripts/syncUiChainContracts.js dogechain",
+    "prepare:dogechain": "corepack pnpm deploy:dogechain && corepack pnpm ui:sync:dogechain"
+  },
+  "dependencies": {
+    "@uniswap/v2-core": "^1.0.1",
+    "@uniswap/v2-periphery": "^1.1.0-beta.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.24.1"
+  }
+}
