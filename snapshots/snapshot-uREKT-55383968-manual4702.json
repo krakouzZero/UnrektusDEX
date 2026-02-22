@@ -1,0 +1,261 @@
+{
+  "token": "0x47022108d3Cd791D0492e05575B150Ae738b8215",
+  "symbol": "uREKT",
+  "decimals": 18,
+  "snapshotBlock": 55383968,
+  "totalHolders": 50,
+  "totalAmount": "3997800765000000000000000",
+  "totalAmountFormatted": "3997800.765",
+  "claims": [
+    {
+      "address": "0x01009bDdaA01146bF8BA3DCC22926f0221812338",
+      "amount": "1424972000000000000000",
+      "amountFormatted": "1424.972"
+    },
+    {
+      "address": "0x0565978e02bb9bdAe46D599a55Ab1cBC0df45E9C",
+      "amount": "29366000000000000000000",
+      "amountFormatted": "29366"
+    },
+    {
+      "address": "0x180e06F179FEEa8c377b64Ac7126625AdDD88d19",
+      "amount": "1754000000000000000000",
+      "amountFormatted": "1754"
+    },
+    {
+      "address": "0x1904D4bAF16D58a8eBe99DB44854E888f94763D8",
+      "amount": "13222660000000000000000",
+      "amountFormatted": "13222.66"
+    },
+    {
+      "address": "0x19B3E86d70a99D24C748Ecbc473818C0D50dC7ba",
+      "amount": "28948338000000000000000",
+      "amountFormatted": "28948.338"
+    },
+    {
+      "address": "0x1b605E7EeAA82B969C9C50aAa28dbcf91a36a755",
+      "amount": "2304000000000000000000",
+      "amountFormatted": "2304"
+    },
+    {
+      "address": "0x1e3eA93711743a6A5A5D559e6F8E65FB801B91Cb",
+      "amount": "2330775000000000000000",
+      "amountFormatted": "2330.775"
+    },
+    {
+      "address": "0x1F53A0d4292c9C93225e122f137C90574930Ed88",
+      "amount": "7388000000000000000000",
+      "amountFormatted": "7388"
+    },
+    {
+      "address": "0x308Ff48FC1542469e8493237b8C5613c2A49F706",
+      "amount": "2345563000000000000000",
+      "amountFormatted": "2345.563"
+    },
+    {
+      "address": "0x33e92FDF477F8564ddDFd44a2DC3751BfdFA0F78",
+      "amount": "994000000000000000000",
+      "amountFormatted": "994"
+    },
+    {
+      "address": "0x425587e5bEEe6DAb96b0546332f62C8e79a6B4cB",
+      "amount": "1506432000000000000000",
+      "amountFormatted": "1506.432"
+    },
+    {
+      "address": "0x460a56A7bBA41dC4460B49044f459B7D59094154",
+      "amount": "415257443000000000000000",
+      "amountFormatted": "415257.443"
+    },
+    {
+      "address": "0x4616936e9037382FAeEe438B95644f382C5A3E3A",
+      "amount": "6701258000000000000000",
+      "amountFormatted": "6701.258"
+    },
+    {
+      "address": "0x461F68a113f4290C7C827577a3a6be344b2e7BA9",
+      "amount": "1927000000000000000000",
+      "amountFormatted": "1927"
+    },
+    {
+      "address": "0x47022108d3Cd791D0492e05575B150Ae738b8215",
+      "amount": "11270978000000000000000",
+      "amountFormatted": "11270.978"
+    },
+    {
+      "address": "0x4b200e8E6340E17Ea4Bfd8650f19410bBBDF709e",
+      "amount": "1314684000000000000000",
+      "amountFormatted": "1314.684"
+    },
+    {
+      "address": "0x4EbC09D505ab38154415B4505Ad8F834EC8F8308",
+      "amount": "1042000000000000000000",
+      "amountFormatted": "1042"
+    },
+    {
+      "address": "0x4fE1b5C0753e54ADA087b16F1CBd01223F747F8A",
+      "amount": "10123000000000000000000",
+      "amountFormatted": "10123"
+    },
+    {
+      "address": "0x53270d44eee663E509f0b715525703B12c353e30",
+      "amount": "10157694000000000000000",
+      "amountFormatted": "10157.694"
+    },
+    {
+      "address": "0x5A19CF5ffB925AF34377F163588b6b49A7D12cCf",
+      "amount": "8660000000000000000000",
+      "amountFormatted": "8660"
+    },
+    {
+      "address": "0x60e7A11592F466fF09Af0b1f8AB4dC7aB7f53947",
+      "amount": "1925000000000000000000",
+      "amountFormatted": "1925"
+    },
+    {
+      "address": "0x679871fa9996EcB25df35c94AeA339eb9c7541F7",
+      "amount": "107148005000000000000000",
+      "amountFormatted": "107148.005"
+    },
+    {
+      "address": "0x692782fC3e405C89B9B423183993B7c72caB3470",
+      "amount": "3201062000000000000000",
+      "amountFormatted": "3201.062"
+    },
+    {
+      "address": "0x75f03Ab982dbF8583BB40C7B23990719bFe12801",
+      "amount": "415257443000000000000000",
+      "amountFormatted": "415257.443"
+    },
+    {
+      "address": "0x7b16d70dE0CfB27a2b0eCBdd9AD63FF60d81bC0b",
+      "amount": "62396100000000000000000",
+      "amountFormatted": "62396.1"
+    },
+    {
+      "address": "0x7C5f4DFCbE4d6A3e3dfBb5bFeB3Ef9E6Bf16aaD7",
+      "amount": "20982120000000000000000",
+      "amountFormatted": "20982.12"
+    },
+    {
+      "address": "0x7FA9Cd7C6be01E2a93f8ea111DD63c47a3D33170",
+      "amount": "6919000000000000000000",
+      "amountFormatted": "6919"
+    },
+    {
+      "address": "0x81dE381FA4B91BC6e36bE3E31483fEfaBA6b1B0A",
+      "amount": "4689567000000000000000",
+      "amountFormatted": "4689.567"
+    },
+    {
+      "address": "0x95E343297bF06616A43511A345294F7FAC2CE7b9",
+      "amount": "9649048000000000000000",
+      "amountFormatted": "9649.048"
+    },
+    {
+      "address": "0x9C2F161C306cCe103B442c993F2bB43098BD0161",
+      "amount": "15390932000000000000000",
+      "amountFormatted": "15390.932"
+    },
+    {
+      "address": "0xaBC26D89a56F0c12409566014D072D26a5a10b5B",
+      "amount": "15743000000000000000000",
+      "amountFormatted": "15743"
+    },
+    {
+      "address": "0xAF0161E579Bc86eFE10D6AD3E46c549E4b855BA5",
+      "amount": "42290384000000000000000",
+      "amountFormatted": "42290.384"
+    },
+    {
+      "address": "0xba432f4A515527610c931a4e4e977121298F1745",
+      "amount": "6545524000000000000000",
+      "amountFormatted": "6545.524"
+    },
+    {
+      "address": "0xBB340D3269B5B4762484bC0FACc99fC731aC6BcD",
+      "amount": "7097000000000000000000",
+      "amountFormatted": "7097"
+    },
+    {
+      "address": "0xbc16ee2949265E46bdb67033C86EA4D430a64d65",
+      "amount": "6090000000000000000000",
+      "amountFormatted": "6090"
+    },
+    {
+      "address": "0xBc8C677153f10643Ada3dD8578AEe301bBe2D032",
+      "amount": "13446438000000000000000",
+      "amountFormatted": "13446.438"
+    },
+    {
+      "address": "0xC80731C21b5A9B3B5dB86F9abCBA49Dd1CF6ed6e",
+      "amount": "1400000000000000000000",
+      "amountFormatted": "1400"
+    },
+    {
+      "address": "0xca3CC2359D0D418Fe4a43905d7cE3C4eC9bd458A",
+      "amount": "1755509390000000000000000",
+      "amountFormatted": "1755509.39"
+    },
+    {
+      "address": "0xca791a18fb95A5ebe792987e3687370334B03145",
+      "amount": "69008000000000000000000",
+      "amountFormatted": "69008"
+    },
+    {
+      "address": "0xcc2efA16D67E559B7308bD97538Ce16d196cDb4C",
+      "amount": "41597400000000000000000",
+      "amountFormatted": "41597.4"
+    },
+    {
+      "address": "0xcd86b7096B1A03D2e7499b8D2CB281b6A0fA8f73",
+      "amount": "23167858000000000000000",
+      "amountFormatted": "23167.858"
+    },
+    {
+      "address": "0xd5a5e357dEdd33842B5a73d6c06ee14152237952",
+      "amount": "1888000000000000000000",
+      "amountFormatted": "1888"
+    },
+    {
+      "address": "0xd7b4D198FfbE1c7c61116731646D65F96C9Daa4e",
+      "amount": "5530927000000000000000",
+      "amountFormatted": "5530.927"
+    },
+    {
+      "address": "0xDe3477F47616d644f8AdB54Cb0C1dCd810755169",
+      "amount": "60000000000000000000000",
+      "amountFormatted": "60000"
+    },
+    {
+      "address": "0xe2a07147B3d18414FCF59ED4a63f4918Dd34E59C",
+      "amount": "6160000000000000000000",
+      "amountFormatted": "6160"
+    },
+    {
+      "address": "0xf00ff4139Ad3611c31174a54207b0a9D3A53836D",
+      "amount": "67000000000000000000000",
+      "amountFormatted": "67000"
+    },
+    {
+      "address": "0xF62d03DF60A2a638696d8CBf7c4499c18312926B",
+      "amount": "5226000000000000000000",
+      "amountFormatted": "5226"
+    },
+    {
+      "address": "0xf9dafaF418Ee86a110a6949a89F3168Ac1Dd291e",
+      "amount": "70798080000000000000000",
+      "amountFormatted": "70798.08"
+    },
+    {
+      "address": "0xFa9Bb6e8b195FC85f3275bc5Cc61Ee135A017f43",
+      "amount": "468913490000000000000000",
+      "amountFormatted": "468913.49"
+    },
+    {
+      "address": "0xFaf91d980F814F53C0597a1924EEfaB13f6E2aA0",
+      "amount": "124792200000000000000000",
+      "amountFormatted": "124792.2"
+    }
+  ]
+}

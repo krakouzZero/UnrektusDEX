@@ -1,0 +1,17 @@
+{
+  "token": "0x47022108d3Cd791D0492e05575B150Ae738b8215",
+  "symbol": "uREKT",
+  "decimals": 18,
+  "snapshotBlock": 55383656,
+  "startBlock": 55254328,
+  "totalHolders": 1,
+  "totalAmount": "513000000000000000000",
+  "totalAmountFormatted": "513.0",
+  "claims": [
+    {
+      "address": "0x4b200e8E6340E17Ea4Bfd8650f19410bBBDF709e",
+      "amount": "513000000000000000000",
+      "amountFormatted": "513.0"
+    }
+  ]
+}

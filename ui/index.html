@@ -37,7 +37,6 @@
       <aside class="right-panel">
         <div class="right-controls">
           <button id="connectBtn" class="btn connect-btn">Connect Wallet</button>
-          <select id="chainSelect"></select>
         </div>
         <div class="header-stats">
           <span id="walletBadge">not connected</span>
@@ -121,11 +120,11 @@
           </div>
           <div class="grid two">
             <div class="field">
-              <label for="liqTokenA">Token A</label>
+              <label for="liqTokenA">Token A <span id="liqTokenAIcon">-</span></label>
               <select id="liqTokenA"></select>
             </div>
             <div class="field">
-              <label for="liqTokenB">Token B</label>
+              <label for="liqTokenB">Token B <span id="liqTokenBIcon">-</span></label>
               <select id="liqTokenB"></select>
             </div>
           </div>
@@ -155,11 +154,10 @@
                   <th>Reserve 0</th>
                   <th>Reserve 1</th>
                   <th>LP Supply</th>
-                  <th>Address</th>
                 </tr>
               </thead>
               <tbody id="poolsBody">
-                <tr><td colspan="5">Loading pools...</td></tr>
+                <tr><td colspan="4">Loading pools...</td></tr>
               </tbody>
             </table>
           </div>

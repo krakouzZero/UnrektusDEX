@@ -332,8 +332,23 @@ function resolveStaticPath(urlPath) {
   if (cleanPath === "/" || cleanPath === "") {
     return path.join(ROOT, "ui", "index.html");
   }
-  const normalized = path.normalize(cleanPath).replace(/^(\.\.[/\\])+/, "");
-  return path.join(ROOT, normalized);
+  const normalized = path
+    .normalize(cleanPath)
+    .replace(/^(\.\.[/\\])+/, "")
+    .replace(/^[/\\]+/, "");
+
+  // Files that are truly rooted at repository level
+  if (normalized.startsWith("deployments/") || normalized.startsWith("merkle/")) {
+    return path.join(ROOT, normalized);
+  }
+
+  // Backward compatibility for old /ui/* URLs
+  if (normalized.startsWith("ui/")) {
+    return path.join(ROOT, normalized);
+  }
+
+  // Default static assets are served from ui/ at local root
+  return path.join(ROOT, "ui", normalized);
 }
 
 function handleError(res, error) {

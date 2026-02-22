@@ -580,15 +580,16 @@ select {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  min-width: 760px;
+  min-width: 0;
+  table-layout: fixed;
 }
 
 .pool-table th,
 .pool-table td {
   border-bottom: 1px solid rgba(102, 247, 255, 0.12);
-  padding: 11px 10px;
+  padding: 9px 8px;
   text-align: left;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .pool-table th {
@@ -603,6 +604,20 @@ select {
   z-index: 1;
 }
 
+.pool-table th:nth-child(1),
+.pool-table td:nth-child(1) {
+  width: 42%;
+}
+
+.pool-table th:nth-child(2),
+.pool-table td:nth-child(2),
+.pool-table th:nth-child(3),
+.pool-table td:nth-child(3),
+.pool-table th:nth-child(4),
+.pool-table td:nth-child(4) {
+  width: 19%;
+}
+
 .pool-table tbody tr {
   transition: background 140ms ease, box-shadow 140ms ease;
 }
@@ -615,15 +630,16 @@ select {
 .pair-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   border: 1px solid rgba(102, 247, 255, 0.34);
   border-radius: 999px;
   background: rgba(10, 18, 35, 0.86);
   color: #cbf7ff;
-  padding: 5px 10px;
+  padding: 4px 8px;
   font-family: "Orbitron", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .token-with-logo {
@@ -651,9 +667,9 @@ select {
   border: 1px solid rgba(102, 247, 255, 0.24);
   border-radius: 9px;
   background: rgba(5, 10, 22, 0.8);
-  padding: 4px 8px;
+  padding: 3px 7px;
   color: #d9f9ff;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .lp-badge {
@@ -662,9 +678,9 @@ select {
   border-radius: 999px;
   background: rgba(24, 9, 32, 0.88);
   color: #ffd2f4;
-  padding: 5px 9px;
+  padding: 4px 7px;
   font-family: "Orbitron", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .addr {
@@ -764,7 +780,7 @@ pre {
   }
 
   .pool-table {
-    min-width: 620px;
+    min-width: 0;
   }
 }
 

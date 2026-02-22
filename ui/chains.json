@@ -1,5 +1,5 @@
 {
-  "defaultChainKey": "hardhat",
+  "defaultChainKey": "dogechain",
   "chains": {
     "hardhat": {
       "key": "hardhat",
@@ -35,16 +35,16 @@
       "blockExplorerUrls": [
         "https://explorer.dogechain.dog"
       ],
-      "claimMerkleFile": "merkle/snapshot-uREKT-55296951-merkle.json",
-      "claimProofsFile": "merkle/snapshot-uREKT-55296951-proofs.json",
+      "claimMerkleFile": "merkle/snapshot-uREKT-55383968-manual4702-merkle.json",
+      "claimProofsFile": "merkle/snapshot-uREKT-55383968-manual4702-proofs.json",
       "tokenLogos": {
         "native": "./wdoge.png",
         "urekt": "./urekt.png",
-        "0xf148221c1218a6ce76aecb889eafae71c0d00a6f": "./urekt.png"
+        "0x120ecb9a70631ed687802076b56cbd726af25fa2": "./urekt.png"
       },
       "tokens": [
         {
-          "address": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
+          "address": "0x120ECb9a70631Ed687802076B56cbd726Af25fA2",
           "logoURI": "./urekt.png"
         }
       ],
@@ -52,8 +52,8 @@
         "router": "0xfb915E1EdC0283fD821E66303C9F163eD2D0B001",
         "factory": "0x9BF216cf124db6B372Cc3d56a835B52b9a258A43",
         "weth": "0xC2D63c0Ad782b2F561E78b8b944a4cE44D203217",
-        "tokenA": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
-        "claim": "0xCfED1D88c51E87c9E44A2b2CF32A52CC981cB783"
+        "tokenA": "0x120ECb9a70631Ed687802076B56cbd726Af25fA2",
+        "claim": "0x1Ca6DBe430844cBE52E6E4cEdb738A1A8FDe3e97"
       }
     }
   }

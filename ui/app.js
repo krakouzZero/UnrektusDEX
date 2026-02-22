@@ -1,6 +1,5 @@
 const toastRoot = document.getElementById("toastRoot");
 const connectBtn = document.getElementById("connectBtn");
-const chainSelect = document.getElementById("chainSelect");
 const walletBadge = document.getElementById("walletBadge");
 const chainBadge = document.getElementById("chainBadge");
 
@@ -37,6 +36,8 @@ const receiveNote = document.getElementById("receiveNote");
 
 const liqTokenA = document.getElementById("liqTokenA");
 const liqTokenB = document.getElementById("liqTokenB");
+const liqTokenAIcon = document.getElementById("liqTokenAIcon");
+const liqTokenBIcon = document.getElementById("liqTokenBIcon");
 const liqAmountA = document.getElementById("liqAmountA");
 const liqAmountB = document.getElementById("liqAmountB");
 const seedBtn = document.getElementById("seedBtn");
@@ -204,16 +205,10 @@ function getWrappedNativeSymbol() {
 async function loadConfig() {
   const res = await fetch("./chains.json");
   config = await res.json();
-  const keys = Object.keys(config.chains);
-  keys.forEach((key) => {
-    const chain = config.chains[key];
-    const opt = document.createElement("option");
-    opt.value = key;
-    opt.textContent = chain.name;
-    chainSelect.appendChild(opt);
-  });
-  chainSelect.value = config.defaultChainKey || keys[0];
-  selectedChain = config.chains[chainSelect.value];
+  selectedChain = config.chains.dogechain || config.chains[config.defaultChainKey] || config.chains[Object.keys(config.chains)[0]];
+  if (!selectedChain) {
+    throw new Error("No chain configured in chains.json");
+  }
 }
 
 async function loadDeploymentForChain(chain) {
@@ -244,6 +239,21 @@ async function connectWallet() {
   account = await signer.getAddress();
   setWalletBadgeState(account);
   notify("success", `Wallet connected: ${shortAddress(account)}`, 2200);
+}
+
+async function tryRestoreWalletSession() {
+  if (!window.ethereum) return;
+  provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+  const accounts = await window.ethereum.request({ method: "eth_accounts" });
+  if (!Array.isArray(accounts) || accounts.length === 0) {
+    signer = null;
+    account = null;
+    setWalletBadgeState(null);
+    return;
+  }
+  signer = provider.getSigner();
+  account = ethers.utils.getAddress(accounts[0]);
+  setWalletBadgeState(account);
 }
 
 async function switchChainIfNeeded() {
@@ -366,6 +376,23 @@ function renderTokenSelect(selectEl, preferredId) {
 
 function getTokenById(id) {
   return tokenOptions.find((t) => t.id === id) || null;
+}
+
+function updateLiquidityTokenLabelSymbols() {
+  const a = getTokenById(liqTokenA.value);
+  const b = getTokenById(liqTokenB.value);
+  if (liqTokenAIcon) {
+    const logoA = tokenLogoUrl(a);
+    liqTokenAIcon.innerHTML = logoA
+      ? `<img class="token-dot" src="${escapeHtml(logoA)}" alt="${escapeHtml(a?.symbol || "Token A")}" />`
+      : "-";
+  }
+  if (liqTokenBIcon) {
+    const logoB = tokenLogoUrl(b);
+    liqTokenBIcon.innerHTML = logoB
+      ? `<img class="token-dot" src="${escapeHtml(logoB)}" alt="${escapeHtml(b?.symbol || "Token B")}" />`
+      : "-";
+  }
 }
 
 function toRouterAddress(token) {
@@ -537,7 +564,7 @@ async function autoFillClaimForAccount() {
 }
 
 async function refreshPools() {
-  poolsBody.innerHTML = '<tr><td colspan="5">Loading...</td></tr>';
+  poolsBody.innerHTML = '<tr><td colspan="4">Loading...</td></tr>';
   try {
     const { factory } = await getContracts(false);
     const rows = [];
@@ -560,8 +587,13 @@ async function refreshPools() {
           pair: `${m0.symbol}/${m1.symbol}`,
           m0,
           m1,
+          token0: t0,
+          token1: t1,
+          reserve0Raw: r.reserve0,
+          reserve1Raw: r.reserve1,
           reserve0: formatAmountForToken(m0, r.reserve0, 4),
           reserve1: formatAmountForToken(m1, r.reserve1, 4),
+          lpRaw: supply,
           lp: ethers.utils.formatEther(supply),
           address: pairAddr
         });
@@ -585,8 +617,13 @@ async function refreshPools() {
             pair: `${m0.symbol}/${m1.symbol}`,
             m0,
             m1,
+            token0: t0,
+            token1: t1,
+            reserve0Raw: r.reserve0,
+            reserve1Raw: r.reserve1,
             reserve0: formatAmountForToken(m0, r.reserve0, 4),
             reserve1: formatAmountForToken(m1, r.reserve1, 4),
+            lpRaw: supply,
             lp: ethers.utils.formatEther(supply),
             address: addr
           });
@@ -594,12 +631,29 @@ async function refreshPools() {
       }
     }
 
-    if (!rows.length) {
-      poolsBody.innerHTML = '<tr><td colspan="5">No pools found.</td></tr>';
+    const seen = new Set();
+    const targetToken = deployment.tokenA.toLowerCase();
+    const targetWrapped = deployment.weth.toLowerCase();
+    const visibleRows = rows.filter((row) => {
+      const r0 = row.token0.toLowerCase();
+      const r1 = row.token1.toLowerCase();
+      const isOfficialPair =
+        (r0 === targetToken && r1 === targetWrapped) ||
+        (r0 === targetWrapped && r1 === targetToken);
+      if (!isOfficialPair) return false;
+
+      const key = row.address.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return !row.reserve0Raw.isZero() || !row.reserve1Raw.isZero() || !row.lpRaw.isZero();
+    });
+
+    if (!visibleRows.length) {
+      poolsBody.innerHTML = '<tr><td colspan="4">No active pools with liquidity.</td></tr>';
       return;
     }
 
-    poolsBody.innerHTML = rows
+    poolsBody.innerHTML = visibleRows
       .map(
         (row) =>
           `<tr>
@@ -607,12 +661,11 @@ async function refreshPools() {
             <td><div class="reserve-stack"><span class="reserve-chip">${row.reserve0}</span></div></td>
             <td><div class="reserve-stack"><span class="reserve-chip">${row.reserve1}</span></div></td>
             <td><span class="lp-badge">${formatNumber(row.lp, 4)}</span></td>
-            <td class="addr">${shortAddress(row.address)}</td>
           </tr>`
       )
       .join("");
   } catch (error) {
-    poolsBody.innerHTML = '<tr><td colspan="5">Pool list unavailable.</td></tr>';
+    poolsBody.innerHTML = '<tr><td colspan="4">Pool list unavailable.</td></tr>';
   }
 }
 
@@ -678,6 +731,7 @@ async function refreshState() {
     if (liqTokenA.value === liqTokenB.value) {
       liqTokenB.value = liqTokenA.value === NATIVE_ID ? deployment.tokenA.toLowerCase() : NATIVE_ID;
     }
+    updateLiquidityTokenLabelSymbols();
 
     const read = getReadProvider();
     const current = account || deployment.deployer || null;
@@ -756,16 +810,6 @@ if (mobileNavToggle && mobileNavMenu) {
   });
 }
 
-chainSelect.addEventListener("change", async () => {
-  selectedChain = config.chains[chainSelect.value];
-  loadedProofsPath = "";
-  loadedProofsMap = null;
-  tokenMetaCache.clear();
-  balanceCache.clear();
-  notify("success", `Chain: ${selectedChain.name}`, 1800);
-  await refreshState();
-});
-
 connectBtn.addEventListener("click", async () => {
   try {
     await connectWallet();
@@ -837,6 +881,7 @@ swapToBalance.addEventListener("click", async () => {
 
 [liqTokenA, liqTokenB].forEach((el) =>
   el.addEventListener("change", async () => {
+    updateLiquidityTokenLabelSymbols();
     await refreshSelectedPairInfo();
     await refreshPools();
   })
@@ -971,7 +1016,29 @@ async function init() {
   }
   syncSlippagePresetFromInput();
   await loadConfig();
+  await tryRestoreWalletSession();
   await refreshState();
+
+  if (window.ethereum?.on) {
+    window.ethereum.on("accountsChanged", async (accounts) => {
+      if (Array.isArray(accounts) && accounts.length > 0) {
+        provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+        signer = provider.getSigner();
+        account = ethers.utils.getAddress(accounts[0]);
+      } else {
+        signer = null;
+        account = null;
+      }
+      balanceCache.clear();
+      setWalletBadgeState(account);
+      await refreshState();
+    });
+
+    window.ethereum.on("chainChanged", async () => {
+      balanceCache.clear();
+      await refreshState();
+    });
+  }
 }
 
 init();
