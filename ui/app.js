@@ -202,7 +202,7 @@ function getWrappedNativeSymbol() {
 }
 
 async function loadConfig() {
-  const res = await fetch("/ui/chains.json");
+  const res = await fetch("./chains.json");
   config = await res.json();
   const keys = Object.keys(config.chains);
   keys.forEach((key) => {

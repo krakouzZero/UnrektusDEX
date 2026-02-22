@@ -38,14 +38,14 @@
       "claimMerkleFile": "merkle/snapshot-uREKT-55296951-merkle.json",
       "claimProofsFile": "merkle/snapshot-uREKT-55296951-proofs.json",
       "tokenLogos": {
-        "native": "/ui/wdoge.png",
-        "urekt": "/ui/urekt.png",
-        "0xf148221c1218a6ce76aecb889eafae71c0d00a6f": "/ui/urekt.png"
+        "native": "./wdoge.png",
+        "urekt": "./urekt.png",
+        "0xf148221c1218a6ce76aecb889eafae71c0d00a6f": "./urekt.png"
       },
       "tokens": [
         {
           "address": "0xf148221c1218a6ce76AeCB889eAFAE71c0D00a6f",
-          "logoURI": "/ui/urekt.png"
+          "logoURI": "./urekt.png"
         }
       ],
       "contracts": {
