@@ -294,18 +294,75 @@ function resolveProofsFilePath() {
   return candidate;
 }
 
+function uniqueStrings(values) {
+  const seen = new Set();
+  const out = [];
+  for (const value of values) {
+    if (!value || seen.has(value)) continue;
+    seen.add(value);
+    out.push(value);
+  }
+  return out;
+}
+
+function resolveProofsCandidateUrls(filePath) {
+  const normalized = String(filePath || "").replace(/^[/\\]+/, "");
+  if (!normalized) return [];
+  const leaf = normalized.split("/").pop();
+  if (!leaf) return [];
+
+  const urls = [
+    `/${normalized}`,
+    `./${normalized}`,
+    normalized
+  ];
+
+  if (normalized.startsWith("merkle/")) {
+    urls.push(`/${normalized.slice("merkle/".length)}`);
+    urls.push(`./${normalized.slice("merkle/".length)}`);
+    urls.push(`../${normalized}`);
+    urls.push(`/ui/${normalized}`);
+  } else {
+    urls.push(`/merkle/${leaf}`);
+    urls.push(`./merkle/${leaf}`);
+    urls.push(`../merkle/${leaf}`);
+    urls.push(`/ui/merkle/${leaf}`);
+  }
+
+  return uniqueStrings(urls);
+}
+
 async function loadProofsMapIfNeeded() {
   const filePath = resolveProofsFilePath();
   if (!filePath) return null;
   if (loadedProofsPath === filePath && loadedProofsMap) return loadedProofsMap;
 
-  const url = filePath.startsWith("/") ? filePath : `/${filePath}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Proofs file not found: ${filePath}`);
-  const data = await res.json();
-  loadedProofsPath = filePath;
-  loadedProofsMap = data.proofsByAddress || null;
-  return loadedProofsMap;
+  const candidateUrls = resolveProofsCandidateUrls(filePath);
+  let lastError = null;
+  for (const url of candidateUrls) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        lastError = new Error(`HTTP ${res.status} on ${url}`);
+        continue;
+      }
+      const data = await res.json();
+      if (!data || typeof data !== "object" || !data.proofsByAddress) {
+        lastError = new Error(`Invalid proofs payload on ${url}`);
+        continue;
+      }
+      loadedProofsPath = filePath;
+      loadedProofsMap = data.proofsByAddress || null;
+      return loadedProofsMap;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw new Error(
+    `Proofs file not found for '${filePath}'. Tried: ${candidateUrls.join(", ")}. Last error: ${
+      lastError?.message || String(lastError)
+    }`
+  );
 }
 
 async function getTokenMeta(address, io) {

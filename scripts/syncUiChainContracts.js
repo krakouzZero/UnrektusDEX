@@ -7,6 +7,21 @@ function fail(message) {
   process.exit(1);
 }
 
+function copyIfExists(src, dest) {
+  if (!src || !fs.existsSync(src)) return false;
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(src, dest);
+  return true;
+}
+
+function normalizeUiMerklePath(rawPath) {
+  if (!rawPath) return "";
+  const cleaned = String(rawPath).replace(/^[/\\]+/, "");
+  const base = path.basename(cleaned);
+  if (!base) return "";
+  return path.join("merkle", base).replace(/\\/g, "/");
+}
+
 function main() {
   const chainKey = process.argv[2] || "dogechain";
   const root = process.cwd();
@@ -42,6 +57,30 @@ function main() {
   };
   chain.claimMerkleFile = deployment.claimMerkleFile || chain.claimMerkleFile || "";
   chain.claimProofsFile = deployment.claimProofsFile || chain.claimProofsFile || "";
+
+  const claimMerkleFileAbs = chain.claimMerkleFile
+    ? path.resolve(root, String(chain.claimMerkleFile).replace(/^[/\\]+/, ""))
+    : "";
+  const claimProofsFileAbs = chain.claimProofsFile
+    ? path.resolve(root, String(chain.claimProofsFile).replace(/^[/\\]+/, ""))
+    : "";
+
+  if (claimMerkleFileAbs) {
+    const uiMerklePath = normalizeUiMerklePath(chain.claimMerkleFile);
+    if (uiMerklePath) {
+      const copiedMerkle = copyIfExists(claimMerkleFileAbs, path.join(root, "ui", uiMerklePath));
+      if (copiedMerkle) chain.claimMerkleFile = uiMerklePath;
+      else console.warn(`Warning: merkle file not found, not copied: ${claimMerkleFileAbs}`);
+    }
+  }
+  if (claimProofsFileAbs) {
+    const uiProofsPath = normalizeUiMerklePath(chain.claimProofsFile);
+    if (uiProofsPath) {
+      const copiedProofs = copyIfExists(claimProofsFileAbs, path.join(root, "ui", uiProofsPath));
+      if (copiedProofs) chain.claimProofsFile = uiProofsPath;
+      else console.warn(`Warning: proofs file not found, not copied: ${claimProofsFileAbs}`);
+    }
+  }
 
   if (!chain.contracts.router || !chain.contracts.factory || !chain.contracts.weth) {
     fail(`Deployment file ${deploymentPath} is missing router/factory/weth`);
