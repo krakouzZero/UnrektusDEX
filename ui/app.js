@@ -88,7 +88,8 @@ const CLAIM_ABI = ["function claim(uint256 amount, bytes32[] calldata merkleProo
 const CLAIM_STATUS_ABI = [
   "function token() view returns (address)",
   "function totalClaimable() view returns (uint256)",
-  "function claimedTotal() view returns (uint256)"
+  "function claimedTotal() view returns (uint256)",
+  "function claimed(address) view returns (bool)"
 ];
 
 let config = null;
@@ -600,6 +601,14 @@ async function autoFillClaimForAccount() {
     return;
   }
   try {
+    const claimRead = new ethers.Contract(claimContract, CLAIM_STATUS_ABI, getReadProvider());
+    const alreadyClaimed = await claimRead.claimed(account);
+    if (alreadyClaimed) {
+      claimAmount.value = "";
+      claimProof.value = "[]";
+      claimStatus.textContent = "Already claimed for this wallet.";
+      return;
+    }
     const tokenA = tokenOptions.find((t) => !t.isNative && t.address.toLowerCase() === deployment.tokenA.toLowerCase());
     const proofsMap = await loadProofsMapIfNeeded();
     if (!proofsMap) {
@@ -817,17 +826,23 @@ async function refreshState() {
     if (claimContract) {
       try {
         const claimRead = new ethers.Contract(claimContract, CLAIM_STATUS_ABI, read);
-        const [claimTokenAddr, totalClaimable, claimedTotal] = await Promise.all([
+        const statusCalls = [
           claimRead.token(),
           claimRead.totalClaimable(),
           claimRead.claimedTotal()
-        ]);
+        ];
+        if (account) statusCalls.push(claimRead.claimed(account));
+        const [claimTokenAddr, totalClaimable, claimedTotal, alreadyClaimed = false] = await Promise.all(statusCalls);
         const claimToken = new ethers.Contract(claimTokenAddr, ERC20_ABI, read);
         const claimBalance = await claimToken.balanceOf(claimContract);
         const requiredReserve = totalClaimable.sub(claimedTotal);
         if (claimBalance.lt(requiredReserve)) {
           claimBtn.disabled = true;
           claimStatus.textContent = "Claim maintenance: funding in progress.";
+        }
+        if (alreadyClaimed) {
+          claimBtn.disabled = true;
+          claimStatus.textContent = "Already claimed for this wallet.";
         }
       } catch (_) {}
     }
@@ -1046,6 +1061,10 @@ claimBtn.addEventListener("click", () =>
   withTx("claim", async () => {
     const claimContract = deployment?.claim || selectedChain?.contracts?.claim;
     if (!claimContract) throw new Error("Claim contract not configured.");
+    const claimRead = new ethers.Contract(claimContract, CLAIM_STATUS_ABI, getReadProvider());
+    if (await claimRead.claimed(account)) {
+      throw new Error("Already claimed for this wallet.");
+    }
 
     const tokenA = tokenOptions.find((t) => !t.isNative && t.address.toLowerCase() === deployment.tokenA.toLowerCase());
     const decimals = tokenA?.decimals || 18;
